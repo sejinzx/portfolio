@@ -88,7 +88,7 @@ Kafka 기반 Producer–Consumer 구조로 수강 신청 요청과 실제 처리
 - 최종 신청 인원과 실제 신청 데이터 수 일치
 - Testcontainers 기반 메시지 처리·재시도·DLT·중복 전달 시나리오 검증
 
-📄 [상세 보기](./portfolio.pdf)
+📄 [상세 보기](./portfolio.pdf#page=2)
 
 ---
 
@@ -137,7 +137,7 @@ Feign Client를 적용해 커뮤니티 서비스에서 프로젝트 서비스의
 - 서비스 간 직접적인 DB 참조 없이 API를 통한 데이터 연동 구현
 - 게시글과 프로젝트 파일 통합 조회 API 구현
 
-📄 [상세 보기](./portfolio.pdf)
+📄 [상세 보기](./portfolio.pdf#page=4)
 
 ---
 
@@ -182,7 +182,7 @@ Jenkins Pipeline을 구성해 저장소 갱신 후 Docker Compose를 이용한 �
 - Multi-stage Build를 통한 빌드 및 실행 환경 분리
 - Jenkins Pipeline 기반 빌드·실행 과정 자동화
 
-📄 [상세 보기](./portfolio.pdf)
+📄 [상세 보기](./portfolio.pdf#page=5)
 
 ---
 
@@ -230,4 +230,4 @@ Repository–Service–Controller 계층에 상태별 조회 기능을 추가하
 - 진행 상태에 따른 참여 데이터 조회 기능 분리
 - 참여 ID 기반 Greening 정보 조회 기능 개선
 
-📄 [상세 보기](./portfolio.pdf)
+📄 [상세 보기](./portfolio.pdf#page=6)
