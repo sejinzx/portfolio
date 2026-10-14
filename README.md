@@ -1,10 +1,14 @@
 # 👋 정세진 | Backend Developer
 
-> 문제를 분석하고 구조를 개선하는 백엔드 개발자
+> 동시성 문제를 분석하고 데이터 처리 구조를 개선하는 신입 백엔드 개발자
 
-안정적인 데이터 처리와 서비스 운영을 고려하며 백엔드 서비스를 개발합니다.
+Java와 Spring Boot를 기반으로 데이터 정합성과 서비스 안정성을 고려해 백엔드 서비스를 개발합니다.
 
-📄 **Portfolio** : [Portfolio.pdf](./portfolio.pdf)
+수강 신청 프로젝트에서는 조건부 UPDATE로 동시 요청 시 발생한 데드락 문제를 해결하고, JMeter 1,000건의 동시 요청 테스트에서 정원 초과와 중복 신청이 발생하지 않음을 확인했습니다.
+
+팀 프로젝트에서는 유저·커뮤니티 서비스 개발과 서비스 간 API 연동을 담당했으며, 팀 구성 변경에 맞춰 미완성 백엔드 기능과 연동 오류를 보완했습니다.
+
+📄 **Portfolio** : [portfolio.pdf](./portfolio.pdf)
 
 📧 **Email** : jeongsejin789@gmail.com
 
@@ -75,9 +79,9 @@ Java · Spring Boot · MySQL · Apache Kafka · Docker · GitHub Actions · AWS 
 
 ### Solution
 
-기존의 `조회 → 정원 확인 → 신청 인원 증가` 구조를 제거하고, 정원 확인과 신청 인원 증가를 하나의 조건부 UPDATE 쿼리로 처리했습니다.
+기존의 `조회 → 정원 확인 → 신청 인원 증가` 구조를 제거하고, 정원 확인과 신청 인원 증가를 하나의 조건부 UPDATE 쿼리로 통합해 동시 요청 시 발생하던 데드락 문제를 해결했습니다.
 
-또한 `(user_seq, class_seq)` UNIQUE 제약조건을 적용해 동시 요청에 따른 중복 신청을 방지했습니다.
+또한 `(user_seq, class_seq)` UNIQUE 제약조건으로 동일 사용자의 중복 신청을 방지했습니다.
 
 Kafka 기반 Producer–Consumer 구조로 수강 신청 요청과 실제 처리 로직을 분리하고, 시스템 예외 발생 시 재시도 및 DLT를 통해 실패 메시지를 처리하도록 구성했습니다.
 
@@ -137,6 +141,10 @@ Feign Client를 적용해 커뮤니티 서비스에서 프로젝트 서비스의
 - 서비스 간 직접적인 DB 참조 없이 API를 통한 데이터 연동 구현
 - 게시글과 프로젝트 파일 통합 조회 API 구현
 
+### 협업 및 문제 해결
+
+- 팀 구성 변경으로 역할이 재조정된 상황에서 담당 서비스 개발과 함께 미완성 백엔드 기능 및 서비스 간 연동 오류를 보완해 프로젝트 마무리에 기여했습니다.
+
 📄 [상세 보기](./portfolio.pdf#page=4)
 
 ---
@@ -178,9 +186,9 @@ Jenkins Pipeline을 구성해 저장소 갱신 후 Docker Compose를 이용한 �
 
 ### Result
 
-- Docker 내부 DNS 기반 컨테이너 간 통신 구조 구성
-- Multi-stage Build를 통한 빌드 및 실행 환경 분리
-- Jenkins Pipeline 기반 빌드·실행 과정 자동화
+- Docker 내부 DNS를 이용해 분리된 서비스 간 통신 문제 해결
+- Multi-stage Build로 백엔드 빌드 단계와 실행 환경 분리
+- Jenkins Pipeline으로 저장소 갱신부터 이미지 재빌드·컨테이너 재기동까지 자동화
 
 📄 [상세 보기](./portfolio.pdf#page=5)
 
@@ -227,7 +235,7 @@ Repository–Service–Controller 계층에 상태별 조회 기능을 추가하
 
 ### Result
 
-- 진행 상태에 따른 참여 데이터 조회 기능 분리
-- 참여 ID 기반 Greening 정보 조회 기능 개선
+- 참여 상태별 조회 기능을 분리해 진행 중인 활동에 필요한 데이터를 구분해 제공
+- 참여 ID를 기준으로 연결된 Greening 정보를 조회하도록 기능 개선
 
 📄 [상세 보기](./portfolio.pdf#page=6)
